@@ -1,8 +1,8 @@
-package com.windcf.springmybatismultipledatasource.service.mjms;
+package com.mjmspred.service.mjms;
 
-import com.windcf.springmybatismultipledatasource.config.MjmsDataSourceConfig;
-import com.windcf.springmybatismultipledatasource.mapper.mjms.DiningMapper;
-import com.windcf.springmybatismultipledatasource.model.mjms.Dining;
+import com.mjmspred.config.MjmsDataSourceConfig;
+import com.mjmspred.mapper.mjms.DiningMapper;
+import com.mjmspred.model.mjms.Dining;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

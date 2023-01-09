@@ -1,9 +1,9 @@
-package com.windcf.springmybatismultipledatasource.controller;
+package com.mjmspred.controller;
 
-import com.windcf.springmybatismultipledatasource.model.meal.MealRecords;
-import com.windcf.springmybatismultipledatasource.model.mjms.Dining;
-import com.windcf.springmybatismultipledatasource.service.meal.MealRecordsService;
-import com.windcf.springmybatismultipledatasource.service.mjms.DiningService;
+import com.mjmspred.model.meal.MealRecords;
+import com.mjmspred.model.mjms.Dining;
+import com.mjmspred.service.meal.MealRecordsService;
+import com.mjmspred.service.mjms.DiningService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

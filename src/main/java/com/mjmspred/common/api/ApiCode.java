@@ -1,4 +1,4 @@
-package com.rufeng.healthman.common.api;
+package com.mjmspred.common.api;
 
 import java.io.Serializable;
 

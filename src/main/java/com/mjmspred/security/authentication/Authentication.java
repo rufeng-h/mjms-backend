@@ -1,6 +1,6 @@
-package com.rufeng.healthman.security.authentication;
+package com.mjmspred.security.authentication;
 
-import com.rufeng.healthman.security.support.UserInfo;
+import com.mjmspred.security.support.BaseUserInfo;
 import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
@@ -18,5 +18,5 @@ public interface Authentication extends Serializable {
      * @return userinfo
      */
     @NonNull
-    UserInfo getUserInfo();
+    BaseUserInfo getUserInfo();
 }

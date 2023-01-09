@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://10.161.4.236:3306/mjms</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="XYcard@10.160.7.174" uuid="f6b0533b-6330-432d-8029-a47371f84a5f">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://10.160.7.174:1433;database=XYcard</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

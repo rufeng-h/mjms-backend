@@ -1,13 +1,13 @@
-package com.windcf.springmybatismultipledatasource.mapper.meal;
+package com.mjmspred.mapper.meal;
 
-import com.windcf.springmybatismultipledatasource.model.meal.MealRecords;
+import com.mjmspred.model.meal.MealRecords;
 import org.apache.ibatis.annotations.Mapper;
 
 
 /**
  * @author HuangChunFeng
- * @time 2023-01-09 10:21
- * @package com.windcf.springmybatismultipledatasource.mapper.meal
+ * @time 2023-01-09 16:29
+ * @package com.mjmspred.mapper.meal
  * @description TODO
  */
 

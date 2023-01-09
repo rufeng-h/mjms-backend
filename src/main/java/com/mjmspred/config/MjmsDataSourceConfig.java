@@ -1,4 +1,4 @@
-package com.windcf.springmybatismultipledatasource.config;
+package com.mjmspred.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
@@ -28,7 +28,7 @@ import javax.sql.DataSource;
  * @author : chunf
  */
 @Configuration
-@MapperScan(basePackages = "com.windcf.springmybatismultipledatasource.mapper.mjms", sqlSessionTemplateRef = MjmsDataSourceConfig.SESSION_TEMP_NAME)
+@MapperScan(basePackages = "com.mjmspred.mapper.mjms", sqlSessionTemplateRef = MjmsDataSourceConfig.SESSION_TEMP_NAME)
 @EnableConfigurationProperties({MjmsDataSourceConfig.MjmsDataSourceProperties.class, MjmsDataSourceConfig.MjmsMybatisProperties.class})
 public class MjmsDataSourceConfig {
     public static final String TRANSACTION_MANAGER = "mjmsTransactionManager";

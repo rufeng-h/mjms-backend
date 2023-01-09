@@ -1,5 +1,6 @@
 package com.mjmspred.security.support;
 
+import com.mjmspred.model.mjms.MjmsUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +15,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInfo {
+public abstract class BaseUserInfo {
     private Long userId;
     private String username;
-    private String password;
 
+
+    public static class UserInfoImpl extends BaseUserInfo {
+        public UserInfoImpl(MjmsUser user) {
+            super(user.getUserId(), user.getUsername());
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.windcf.springmybatismultipledatasource.config;
+package com.mjmspred.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
@@ -32,7 +32,7 @@ import javax.sql.DataSource;
 public class MealDataSourceConfig {
     public static final String TRANSACTION_BEAN_NAME = "mealTransactionManager";
     private static final String DATASOURCE_BEAN_NAME = "mealDataSource";
-    public static final String BASE_MAPPER_PACKAGES = "com.windcf.springmybatismultipledatasource.mapper.meal";
+    public static final String BASE_MAPPER_PACKAGES = "com.mjmspred.mapper.meal";
     public static final String SESSION_TEMP_NAME = "mealSqlSessionTemplate";
     private static final String SESSION_FACTORY_NAME = "mealSqlSessionFactory";
     private static final String DATASOURCE_PROPS_PREFIX = "spring.datasource.meal";

@@ -1,8 +1,8 @@
-package com.rufeng.healthman.security.filter;
+package com.mjmspred.security.filter;
 
-import com.rufeng.healthman.security.context.SecurityContext;
-import com.rufeng.healthman.security.context.SecurityContextHolder;
-import com.rufeng.healthman.security.repositry.SecurityContextRepository;
+import com.mjmspred.security.context.SecurityContext;
+import com.mjmspred.security.context.SecurityContextHolder;
+import com.mjmspred.security.repositry.SecurityContextRepository;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.log.LogMessage;
 import org.springframework.lang.NonNull;

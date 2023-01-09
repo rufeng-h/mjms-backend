@@ -1,4 +1,4 @@
-package com.mjms;
+package com.mjmspred;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MjmsApplication {
     public static void main(String[] args) {
+        /* apollo env */
+        System.setProperty("env", "pro");
         SpringApplication.run(MjmsApplication.class);
     }
 }

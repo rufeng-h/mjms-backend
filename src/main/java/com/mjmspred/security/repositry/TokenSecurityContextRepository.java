@@ -1,12 +1,13 @@
-package com.rufeng.healthman.security.repositry;
+package com.mjmspred.security.repositry;
 
-import com.rufeng.healthman.common.util.JwtTokenUtils;
-import com.rufeng.healthman.enums.UserTypeEnum;
-import com.rufeng.healthman.security.authentication.Authentication;
-import com.rufeng.healthman.security.context.SecurityContext;
-import com.rufeng.healthman.security.context.SecurityContextHolder;
-import com.rufeng.healthman.security.support.UserInfo;
-import com.rufeng.healthman.service.RedisService;
+import com.mjmspred.security.support.JwtTokenManager;
+import com.mjmspred.exception.AuthenticationException;
+import com.mjmspred.model.mjms.MjmsUser;
+import com.mjmspred.security.authentication.AuthenticationImpl;
+import com.mjmspred.security.context.SecurityContext;
+import com.mjmspred.security.context.SecurityContextHolder;
+import com.mjmspred.security.support.BaseUserInfo;
+import com.mjmspred.service.mjms.MjmsUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,9 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.rufeng.healthman.config.OpenApiConfig.JWT_HEADER_NAME;
+import java.util.Optional;
+
+import static com.mjmspred.config.OpenApiConfig.JWT_HEADER_NAME;
 
 
 /**
@@ -23,10 +26,12 @@ import static com.rufeng.healthman.config.OpenApiConfig.JWT_HEADER_NAME;
 @Component
 @Slf4j
 public class TokenSecurityContextRepository implements SecurityContextRepository {
-    private final RedisService redisService;
+    private final MjmsUserService userService;
+    private final JwtTokenManager jwtTokenManager;
 
-    TokenSecurityContextRepository(RedisService redisService) {
-        this.redisService = redisService;
+    public TokenSecurityContextRepository(MjmsUserService userService, JwtTokenManager jwtTokenManager) {
+        this.userService = userService;
+        this.jwtTokenManager = jwtTokenManager;
     }
 
     @Override
@@ -34,20 +39,11 @@ public class TokenSecurityContextRepository implements SecurityContextRepository
     public SecurityContext loadContext(HttpServletRequest request) {
         SecurityContext context = SecurityContextHolder.createEmptyContext();
         String token = request.getHeader(JWT_HEADER_NAME);
-        if (token == null) {
-            log.debug("未认证用户！");
-            return context;
-        }
-        String userId = JwtTokenUtils.getId(token);
-        UserTypeEnum userType = JwtTokenUtils.getSubject(token);
-        Authentication authentication = redisService.getObject(UserInfo.userKey(userType, userId), Authentication.class);
-        if (authentication == null) {
-            log.warn("空的认证信息！");
-        } else {
-            UserInfo userInfo = authentication.getUserInfo();
-            log.debug(userInfo.getUserType() + ": " + userInfo.getUsername());
-        }
-        context.setAuthentication(authentication);
+        Optional.ofNullable(token).orElseThrow(AuthenticationException::new);
+        String id = jwtTokenManager.getId(token);
+        MjmsUser user = userService.getUser(Long.parseLong(id));
+        Optional.ofNullable(user).orElseThrow(AuthenticationException::new);
+        context.setAuthentication(new AuthenticationImpl(new BaseUserInfo.UserInfoImpl(user)));
         return context;
     }
 

@@ -1,8 +1,8 @@
-package com.rufeng.healthman.security.handler;
+package com.mjmspred.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rufeng.healthman.common.api.ApiResponse;
-import com.rufeng.healthman.exceptions.AuthenticationException;
+import com.mjmspred.common.api.ApiResponse;
+import com.mjmspred.exception.AuthenticationException;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
-package com.windcf.springmybatismultipledatasource.service.meal;
+package com.mjmspred.service.meal;
 
-import com.windcf.springmybatismultipledatasource.config.MealDataSourceConfig;
-import com.windcf.springmybatismultipledatasource.mapper.meal.MealRecordsMapper;
-import com.windcf.springmybatismultipledatasource.model.meal.MealRecords;
+import com.mjmspred.config.MealDataSourceConfig;
+import com.mjmspred.mapper.meal.MealRecordsMapper;
+import com.mjmspred.model.meal.MealRecords;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

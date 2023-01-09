@@ -1,6 +1,6 @@
-package com.rufeng.healthman.security.handler;
+package com.mjmspred.security.handler;
 
-import com.rufeng.healthman.exceptions.AccessDeniedException;
+import com.mjmspred.exception.AccessDeniedException;
 import org.springframework.lang.NonNull;
 
 import javax.servlet.ServletException;

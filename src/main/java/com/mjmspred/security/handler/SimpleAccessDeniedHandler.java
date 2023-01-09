@@ -1,8 +1,8 @@
-package com.rufeng.healthman.security.handler;
+package com.mjmspred.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rufeng.healthman.common.api.ApiResponse;
-import com.rufeng.healthman.exceptions.AccessDeniedException;
+import com.mjmspred.common.api.ApiResponse;
+import com.mjmspred.exception.AccessDeniedException;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
@@ -27,9 +27,7 @@ public class SimpleAccessDeniedHandler implements AccessDeniedHandler {
     }
 
     @Override
-    public void onAccessDenied(@NonNull HttpServletRequest request,
-                               @NonNull HttpServletResponse response,
-                               @NonNull AccessDeniedException ex) throws IOException {
+    public void onAccessDenied(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull AccessDeniedException ex) throws IOException {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding(String.valueOf(StandardCharsets.UTF_8));
         response.getWriter().println(objectMapper.writeValueAsString(ApiResponse.accessDenied(ex.getMessage())));

@@ -1,6 +1,6 @@
-package com.rufeng.healthman.security.authentication;
+package com.mjmspred.security.authentication;
 
-import com.rufeng.healthman.security.support.UserInfo;
+import com.mjmspred.security.support.BaseUserInfo;
 import org.springframework.lang.NonNull;
 
 /**
@@ -10,15 +10,15 @@ import org.springframework.lang.NonNull;
  * @description TODO
  */
 public class AuthenticationImpl implements Authentication {
-    private final UserInfo userInfo;
+    private final BaseUserInfo baseUserInfo;
 
-    public AuthenticationImpl(UserInfo userInfo) {
-        this.userInfo = userInfo;
+    public AuthenticationImpl(BaseUserInfo baseUserInfo) {
+        this.baseUserInfo = baseUserInfo;
     }
 
     @Override
     @NonNull
-    public UserInfo getUserInfo() {
-        return userInfo;
+    public BaseUserInfo getUserInfo() {
+        return baseUserInfo;
     }
 }

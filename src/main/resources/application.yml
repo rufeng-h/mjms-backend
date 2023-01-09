@@ -1,19 +1,8 @@
 server:
   port: 8000
 
+
 spring:
-  # datasource
-  datasource:
-    mjms:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      username: root
-      password: Bigdata421!
-      url: jdbc:mysql://10.161.4.236:3306/mjms
-    meal:
-      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      username: sa
-      password: Passw0rd
-      url: jdbc:sqlserver://10.160.7.174:1433;database=XYcard
   # jackson
   jackson:
     default-property-inclusion: non_null
@@ -46,6 +35,10 @@ mybatis:
       jdbc-type-for-null: null
       local-cache-scope: statement
     mapper-locations: classpath:/mapper/mjms/*.xml
-#  type-aliases-package: com.rufeng.healthman.pojo
-#vhr:
-#  work-dir: ${user.home}/.vhr
+app:
+  id: mjms-pred
+apollo:
+  meta: http://10.160.9.197:8080,http://10.160.9.198:8080,http://42.193.188.51:8080
+  bootstrap:
+    enabled: true
+    namespaces: application,mjms-datasource,meal-datasource

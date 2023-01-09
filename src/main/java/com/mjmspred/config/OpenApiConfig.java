@@ -1,4 +1,4 @@
-package com.rufeng.healthman.config;
+package com.mjmspred.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -26,18 +26,7 @@ public class OpenApiConfig {
 
     @Bean
     public OpenAPI openApi() {
-        return new OpenAPI()
-                .info(new Info()
-                        .contact(new Contact().email("chunfengh163@163.com").name("rufeng").url("http://windcf.com"))
-                        .description("兴趣所至")
-                        .title("体质健康系统")
-                        .license(new License().url("https://opensource.org/licenses/MIT")).version("v1.0"))
-                .schemaRequirement(JWT_SCHEME_NAME, new SecurityScheme()
-                        .scheme("bearer")
-                        .in(SecurityScheme.In.HEADER)
-                        .type(SecurityScheme.Type.APIKEY)
-                        .name(JWT_HEADER_NAME)
-                        .bearerFormat("JWT"));
+        return new OpenAPI().info(new Info().contact(new Contact().email("chunfengh163@163.com").name("rufeng").url("http://windcf.com")).description("兴趣所至").title("体质健康系统").license(new License().url("https://opensource.org/licenses/MIT")).version("v1.0")).schemaRequirement(JWT_SCHEME_NAME, new SecurityScheme().scheme("bearer").in(SecurityScheme.In.HEADER).type(SecurityScheme.Type.APIKEY).name(JWT_HEADER_NAME).bearerFormat("JWT"));
     }
 
     @Bean

@@ -1,10 +1,9 @@
-package com.rufeng.healthman.common;
+package com.mjmspred.common;
 
-import com.alibaba.excel.exception.ExcelDataConvertException;
-import com.rufeng.healthman.common.api.ApiResponse;
-import com.rufeng.healthman.exceptions.AccessDeniedException;
-import com.rufeng.healthman.exceptions.AuthenticationException;
-import com.rufeng.healthman.exceptions.PtException;
+import com.mjmspred.common.api.ApiResponse;
+import com.mjmspred.exception.AccessDeniedException;
+import com.mjmspred.exception.AuthenticationException;
+import com.mjmspred.exception.MjmsException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
@@ -46,16 +45,10 @@ public class GlobalExceptionHandler {
     /**
      * 项目自定义异常
      */
-    @ExceptionHandler(PtException.class)
-    public ApiResponse<Void> ptError(PtException e) {
+    @ExceptionHandler(MjmsException.class)
+    public ApiResponse<Void> ptError(MjmsException e) {
         e.printStackTrace();
         return ApiResponse.clientError(e.getMessage());
-    }
-
-    @ExceptionHandler(ExcelDataConvertException.class)
-    public ApiResponse<Void> excelError(ExcelDataConvertException e) {
-        String message = String.format("第%s行 第%s列 数据 %s 格式错误！", e.getRowIndex() + 1, e.getColumnIndex() + 1, e.getCellData().getStringValue());
-        return ApiResponse.clientError(message);
     }
 
     /**

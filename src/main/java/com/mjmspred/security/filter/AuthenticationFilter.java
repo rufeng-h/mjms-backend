@@ -1,10 +1,10 @@
-package com.rufeng.healthman.security.filter;
+package com.mjmspred.security.filter;
 
-import com.rufeng.healthman.exceptions.AccessDeniedException;
-import com.rufeng.healthman.exceptions.AuthenticationException;
-import com.rufeng.healthman.security.context.SecurityContextHolder;
-import com.rufeng.healthman.security.handler.AccessDeniedHandler;
-import com.rufeng.healthman.security.handler.AuthenticateFailHandler;
+import com.mjmspred.exception.AccessDeniedException;
+import com.mjmspred.exception.AuthenticationException;
+import com.mjmspred.security.context.SecurityContextHolder;
+import com.mjmspred.security.handler.AccessDeniedHandler;
+import com.mjmspred.security.handler.AuthenticateFailHandler;
 import org.springframework.core.annotation.Order;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;

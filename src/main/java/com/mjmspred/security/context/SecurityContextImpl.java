@@ -1,6 +1,6 @@
-package com.rufeng.healthman.security.context;
+package com.mjmspred.security.context;
 
-import com.rufeng.healthman.security.authentication.Authentication;
+import com.mjmspred.security.authentication.Authentication;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

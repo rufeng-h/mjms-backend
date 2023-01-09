@@ -1,6 +1,6 @@
-package com.rufeng.healthman.security.repositry;
+package com.mjmspred.security.repositry;
 
-import com.rufeng.healthman.security.context.SecurityContext;
+import com.mjmspred.security.context.SecurityContext;
 import org.springframework.lang.NonNull;
 
 import javax.servlet.http.HttpServletRequest;

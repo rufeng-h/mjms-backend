@@ -1,4 +1,4 @@
-package com.rufeng.healthman.common.util;
+package com.mjmspred.common.util;
 
 import org.springframework.util.DigestUtils;
 

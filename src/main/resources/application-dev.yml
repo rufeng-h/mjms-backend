@@ -3,6 +3,7 @@ logging:
     web: DEBUG
     sql: DEBUG
     org.ibatis: DEBUG
+    com.mjmspred: DEBUG
 mybatis:
   meal:
     configuration:
@@ -10,10 +11,8 @@ mybatis:
   mjms:
     configuration:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#  main:
-#    allow-circular-references: true
-#springdoc:
-#  swagger-ui:
-#    enabled: true
-#    path: /docs
-#  packages-to-scan: com.windcf.vhr.web.controller
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /docs
+  packages-to-scan: com.mjmspred.controller

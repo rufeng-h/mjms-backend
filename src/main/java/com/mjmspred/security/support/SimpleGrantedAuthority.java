@@ -1,4 +1,4 @@
-package com.rufeng.healthman.security.support;
+package com.mjmspred.security.support;
 
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
