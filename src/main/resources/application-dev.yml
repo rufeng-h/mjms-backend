@@ -1,0 +1,19 @@
+logging:
+  level:
+    web: DEBUG
+    sql: DEBUG
+    org.ibatis: DEBUG
+mybatis:
+  meal:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mjms:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  main:
+#    allow-circular-references: true
+#springdoc:
+#  swagger-ui:
+#    enabled: true
+#    path: /docs
+#  packages-to-scan: com.windcf.vhr.web.controller

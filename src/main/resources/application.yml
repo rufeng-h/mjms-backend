@@ -1,0 +1,51 @@
+server:
+  port: 8000
+
+spring:
+  # datasource
+  datasource:
+    mjms:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Bigdata421!
+      url: jdbc:mysql://10.161.4.236:3306/mjms
+    meal:
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      username: sa
+      password: Passw0rd
+      url: jdbc:sqlserver://10.160.7.174:1433;database=XYcard
+  # jackson
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:SS
+    time-zone: GMT+8
+  # http file
+  servlet:
+    multipart:
+      max-request-size: 1000MB
+      max-file-size: 1000MB
+      resolve-lazily: true
+  # default false
+  #  main:
+  #    allow-circular-references: false
+  # mybatis
+mybatis:
+  meal:
+    configuration:
+      map-underscore-to-camel-case: true
+      cache-enabled: false
+      use-generated-keys: true
+      jdbc-type-for-null: null
+      local-cache-scope: statement
+    mapper-locations: classpath:/mapper/meal/*.xml
+  mjms:
+    configuration:
+      map-underscore-to-camel-case: true
+      cache-enabled: false
+      use-generated-keys: true
+      jdbc-type-for-null: null
+      local-cache-scope: statement
+    mapper-locations: classpath:/mapper/mjms/*.xml
+#  type-aliases-package: com.rufeng.healthman.pojo
+#vhr:
+#  work-dir: ${user.home}/.vhr
