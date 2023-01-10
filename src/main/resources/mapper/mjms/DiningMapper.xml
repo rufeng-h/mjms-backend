@@ -188,4 +188,21 @@
             ams_dinner     = #{amsDinner,jdbcType=INTEGER}
         where dn_id = #{dnId,jdbcType=BIGINT}
     </update>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM dining
+        <where>
+            <if test="query.date != null">
+                dn_date = #{query.date,jdbcType=DATE}
+            </if>
+            <if test="query.sDate != null">
+                AND dn_date &gt;= #{query.sDate,jdbcType=DATE}
+            </if>
+            <if test="query.eDate != null">
+                AND dn_date &lt;= #{query.eDate,jdbcType=DATE}
+            </if>
+        </where>
+    </select>
 </mapper>

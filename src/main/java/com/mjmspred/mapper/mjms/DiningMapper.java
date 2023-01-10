@@ -1,7 +1,10 @@
 package com.mjmspred.mapper.mjms;
 
+import com.github.pagehelper.Page;
 import com.mjmspred.model.mjms.Dining;
+import com.mjmspred.model.mjms.query.DiningQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -24,4 +27,6 @@ public interface DiningMapper {
     int updateByPrimaryKeySelective(Dining record);
 
     int updateByPrimaryKey(Dining record);
+
+    Page<Dining> page(@Param("query") DiningQuery query);
 }
