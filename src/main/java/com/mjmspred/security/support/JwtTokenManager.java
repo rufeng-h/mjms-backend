@@ -22,12 +22,10 @@ import javax.crypto.SecretKey;
 @EnableConfigurationProperties(JwtTokenManager.JwtProperties.class)
 public class JwtTokenManager implements InitializingBean {
 
-    private final JwtProperties properties;
     private final SecretKey signedKey;
 
 
     public JwtTokenManager(JwtProperties properties) {
-        this.properties = properties;
         signedKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(properties.getKey()));
     }
 
@@ -52,7 +50,7 @@ public class JwtTokenManager implements InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
 
     }
 }
