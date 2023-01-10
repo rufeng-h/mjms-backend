@@ -16,9 +16,9 @@ public class DiningQuery {
     /**
      * 开始日期
      */
-    private LocalDate sDate;
+    private LocalDate sdate;
     /**
      * 结束日期，含
      */
-    private LocalDate eDate;
+    private LocalDate edate;
 }

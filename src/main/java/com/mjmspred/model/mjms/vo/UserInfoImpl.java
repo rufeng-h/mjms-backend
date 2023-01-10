@@ -10,8 +10,8 @@ import com.mjmspred.security.support.UserInfo;
  * @description useinfo impl
  */
 public class UserInfoImpl implements UserInfo {
-    private String username;
-    private Long userId;
+    private final String username;
+    private final Long userId;
 
     public UserInfoImpl(MjmsUser user) {
         this.userId = user.getUserId();
@@ -24,7 +24,7 @@ public class UserInfoImpl implements UserInfo {
     }
 
     @Override
-    public Object getUserId() {
+    public Long getUserId() {
         return userId;
     }
 }
