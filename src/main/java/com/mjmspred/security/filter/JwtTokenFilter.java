@@ -22,10 +22,10 @@ import java.io.IOException;
  */
 @Order(1)
 @Component
-public class RedisTokenFilter extends OncePerRequestFilter {
+public class JwtTokenFilter extends OncePerRequestFilter {
     private final SecurityContextRepository contextRepository;
 
-    public RedisTokenFilter(SecurityContextRepository contextRepository) {
+    public JwtTokenFilter(SecurityContextRepository contextRepository) {
         this.contextRepository = contextRepository;
     }
 

@@ -40,7 +40,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     public AuthenticationFilter(AuthenticateFailHandler authenticateFailHandler, AccessDeniedHandler accessDeniedHandler) {
         this.authenticateFailHandler = authenticateFailHandler;
         this.accessDeniedHandler = accessDeniedHandler;
-//        addUrlPatterns("/api/**", "/test/api/**");
+        addUrlPatterns("/api/**", "/test/api/**");
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             if (SecurityContextHolder.getContext().isAuthenticated()) {
                 filterChain.doFilter(request, response);
             } else {
-                throw new AuthenticationException("需要认证！");
+                throw new AuthenticationException("未认证！");
             }
         } catch (AuthenticationException ex) {
             authenticateFailHandler.onAuthenticateFail(request, response, ex);

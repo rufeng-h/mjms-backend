@@ -6,12 +6,14 @@ import com.mjmspred.service.meal.MealRecordsService;
 import com.mjmspred.service.mjms.DiningService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author : chunf
  */
 @RestController
+@RequestMapping("/api")
 public class TestController {
     private final MealRecordsService mealRecordsService;
     private final DiningService diningService;

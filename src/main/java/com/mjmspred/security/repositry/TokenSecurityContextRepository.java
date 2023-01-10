@@ -1,21 +1,19 @@
 package com.mjmspred.security.repositry;
 
-import com.mjmspred.security.support.JwtTokenManager;
-import com.mjmspred.exception.AuthenticationException;
 import com.mjmspred.model.mjms.MjmsUser;
 import com.mjmspred.security.authentication.AuthenticationImpl;
 import com.mjmspred.security.context.SecurityContext;
 import com.mjmspred.security.context.SecurityContextHolder;
 import com.mjmspred.security.support.BaseUserInfo;
+import com.mjmspred.security.support.JwtTokenManager;
 import com.mjmspred.service.mjms.MjmsUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.util.Optional;
 
 import static com.mjmspred.config.OpenApiConfig.JWT_HEADER_NAME;
 
@@ -39,10 +37,14 @@ public class TokenSecurityContextRepository implements SecurityContextRepository
     public SecurityContext loadContext(HttpServletRequest request) {
         SecurityContext context = SecurityContextHolder.createEmptyContext();
         String token = request.getHeader(JWT_HEADER_NAME);
-        Optional.ofNullable(token).orElseThrow(AuthenticationException::new);
+        if (!StringUtils.hasText(token)) {
+            return context;
+        }
         String id = jwtTokenManager.getId(token);
         MjmsUser user = userService.getUser(Long.parseLong(id));
-        Optional.ofNullable(user).orElseThrow(AuthenticationException::new);
+        if (user == null) {
+            return context;
+        }
         context.setAuthentication(new AuthenticationImpl(new BaseUserInfo.UserInfoImpl(user)));
         return context;
     }
