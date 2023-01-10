@@ -42,8 +42,8 @@ public class JwtTokenManager implements InitializingBean {
     }
 
 
-    public String generateToken(BaseUserInfo baseUserInfo) {
-        return Jwts.builder().setSubject(baseUserInfo.getUsername()).setId(String.valueOf(baseUserInfo.getUserId())).signWith(signedKey).compact();
+    public String generateToken(UserInfo userInfo) {
+        return Jwts.builder().setSubject(userInfo.getUsername()).setId(String.valueOf(userInfo.getUserId())).signWith(signedKey).compact();
     }
 
     @Nullable

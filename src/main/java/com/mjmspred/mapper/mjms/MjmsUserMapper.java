@@ -1,7 +1,9 @@
 package com.mjmspred.mapper.mjms;
 
 import com.mjmspred.model.mjms.MjmsUser;
+import com.mjmspred.model.mjms.query.UserQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -24,4 +26,6 @@ public interface MjmsUserMapper {
     int updateByPrimaryKeySelective(MjmsUser record);
 
     int updateByPrimaryKey(MjmsUser record);
+
+    MjmsUser getUser(@Param("query") UserQuery query);
 }

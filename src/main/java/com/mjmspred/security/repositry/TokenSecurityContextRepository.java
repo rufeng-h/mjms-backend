@@ -1,10 +1,10 @@
 package com.mjmspred.security.repositry;
 
 import com.mjmspred.model.mjms.MjmsUser;
+import com.mjmspred.model.mjms.vo.UserInfoImpl;
 import com.mjmspred.security.authentication.AuthenticationImpl;
 import com.mjmspred.security.context.SecurityContext;
 import com.mjmspred.security.context.SecurityContextHolder;
-import com.mjmspred.security.support.BaseUserInfo;
 import com.mjmspred.security.support.JwtTokenManager;
 import com.mjmspred.service.mjms.MjmsUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +48,7 @@ public class TokenSecurityContextRepository implements SecurityContextRepository
         if (user == null) {
             return context;
         }
-        context.setAuthentication(new AuthenticationImpl(new BaseUserInfo.UserInfoImpl(user)));
+        context.setAuthentication(new AuthenticationImpl(new UserInfoImpl(user)));
         return context;
     }
 

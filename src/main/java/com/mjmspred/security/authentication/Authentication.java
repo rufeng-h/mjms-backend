@@ -1,6 +1,6 @@
 package com.mjmspred.security.authentication;
 
-import com.mjmspred.security.support.BaseUserInfo;
+import com.mjmspred.security.support.UserInfo;
 import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
@@ -18,5 +18,5 @@ public interface Authentication extends Serializable {
      * @return userinfo
      */
     @NonNull
-    BaseUserInfo getUserInfo();
+    UserInfo getUserInfo();
 }

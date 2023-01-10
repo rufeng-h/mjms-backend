@@ -1,7 +1,8 @@
 package com.mjmspred.security.authentication;
 
-import com.mjmspred.security.support.BaseUserInfo;
+import com.mjmspred.security.support.UserInfo;
 import org.springframework.lang.NonNull;
+import org.springframework.util.Assert;
 
 /**
  * @author rufeng
@@ -10,15 +11,16 @@ import org.springframework.lang.NonNull;
  * @description TODO
  */
 public class AuthenticationImpl implements Authentication {
-    private final BaseUserInfo baseUserInfo;
+    private final UserInfo userInfo;
 
-    public AuthenticationImpl(BaseUserInfo baseUserInfo) {
-        this.baseUserInfo = baseUserInfo;
+    public AuthenticationImpl(@NonNull UserInfo userInfo) {
+        Assert.notNull(userInfo, "userinfo不能为空");
+        this.userInfo = userInfo;
     }
 
     @Override
     @NonNull
-    public BaseUserInfo getUserInfo() {
-        return baseUserInfo;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 }
