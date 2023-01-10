@@ -1,6 +1,8 @@
 package com.mjmspred.model.meal;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,19 +42,19 @@ public class MealRecords {
     private Integer cardSequ;
 
     @Schema(description = "")
-    private Object cardConsume;
+    private BigDecimal cardConsume;
 
     @Schema(description = "")
-    private Object mval;
+    private BigDecimal mval;
 
     @Schema(description = "")
-    private Object coupon;
+    private BigDecimal coupon;
 
     @Schema(description = "")
-    private Object cardBalance;
+    private BigDecimal cardBalance;
 
     @Schema(description = "")
-    private Object aBalance;
+    private BigDecimal aBalance;
 
     @Schema(description = "")
     private Integer kind;

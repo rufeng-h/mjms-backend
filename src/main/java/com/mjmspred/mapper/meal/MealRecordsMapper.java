@@ -13,15 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MealRecordsMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(MealRecords record);
-
-    int insertSelective(MealRecords record);
-
     MealRecords selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(MealRecords record);
-
-    int updateByPrimaryKey(MealRecords record);
 }

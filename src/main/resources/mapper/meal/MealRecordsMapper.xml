@@ -1,237 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mjmspred.mapper.meal.MealRecordsMapper">
-  <resultMap id="BaseResultMap" type="com.mjmspred.model.meal.MealRecords">
-    <!--@mbg.generated-->
-    <!--@Table MealRecords-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="emp_id" jdbcType="VARCHAR" property="empId" />
-    <result column="card_id" jdbcType="BIGINT" property="cardId" />
-    <result column="clock_id" jdbcType="INTEGER" property="clockId" />
-    <result column="pos_sequ" jdbcType="INTEGER" property="posSequ" />
-    <result column="card_sequ" jdbcType="INTEGER" property="cardSequ" />
-    <result column="card_consume" jdbcType="OTHER" property="cardConsume" />
-    <result column="mval" jdbcType="OTHER" property="mval" />
-    <result column="coupon" jdbcType="OTHER" property="coupon" />
-    <result column="card_balance" jdbcType="OTHER" property="cardBalance" />
-    <result column="a_balance" jdbcType="OTHER" property="aBalance" />
-    <result column="kind" jdbcType="INTEGER" property="kind" />
-    <result column="ver_id" jdbcType="INTEGER" property="verId" />
-    <result column="flag" jdbcType="INTEGER" property="flag" />
-    <result column="sign_time" jdbcType="TIMESTAMP" property="signTime" />
-    <result column="dcollecttime" jdbcType="TIMESTAMP" property="dcollecttime" />
-    <result column="op_user" jdbcType="VARCHAR" property="opUser" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, emp_id, card_id, clock_id, pos_sequ, card_sequ, card_consume, mval, coupon, card_balance, 
-    a_balance, kind, ver_id, flag, sign_time, dcollecttime, op_user
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from MealRecords
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
-    delete from MealRecords
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mjmspred.model.meal.MealRecords" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into MealRecords (emp_id, card_id, clock_id, 
-      pos_sequ, card_sequ, card_consume, 
-      mval, coupon, card_balance, 
-      a_balance, kind, ver_id, 
-      flag, sign_time, dcollecttime, 
-      op_user)
-    values (#{empId,jdbcType=VARCHAR}, #{cardId,jdbcType=BIGINT}, #{clockId,jdbcType=INTEGER}, 
-      #{posSequ,jdbcType=INTEGER}, #{cardSequ,jdbcType=INTEGER}, #{cardConsume,jdbcType=OTHER}, 
-      #{mval,jdbcType=OTHER}, #{coupon,jdbcType=OTHER}, #{cardBalance,jdbcType=OTHER}, 
-      #{aBalance,jdbcType=OTHER}, #{kind,jdbcType=INTEGER}, #{verId,jdbcType=INTEGER}, 
-      #{flag,jdbcType=INTEGER}, #{signTime,jdbcType=TIMESTAMP}, #{dcollecttime,jdbcType=TIMESTAMP}, 
-      #{opUser,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mjmspred.model.meal.MealRecords" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into MealRecords
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="empId != null">
+    <resultMap id="BaseResultMap" type="com.mjmspred.model.meal.MealRecords">
+        <!--@mbg.generated-->
+        <!--@Table MealRecords-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="emp_id" jdbcType="VARCHAR" property="empId"/>
+        <result column="card_id" jdbcType="BIGINT" property="cardId"/>
+        <result column="clock_id" jdbcType="INTEGER" property="clockId"/>
+        <result column="pos_sequ" jdbcType="INTEGER" property="posSequ"/>
+        <result column="card_sequ" jdbcType="INTEGER" property="cardSequ"/>
+        <result column="card_consume" jdbcType="OTHER" property="cardConsume"/>
+        <result column="mval" jdbcType="OTHER" property="mval"/>
+        <result column="coupon" jdbcType="OTHER" property="coupon"/>
+        <result column="card_balance" jdbcType="OTHER" property="cardBalance"/>
+        <result column="a_balance" jdbcType="OTHER" property="aBalance"/>
+        <result column="kind" jdbcType="INTEGER" property="kind"/>
+        <result column="ver_id" jdbcType="INTEGER" property="verId"/>
+        <result column="flag" jdbcType="INTEGER" property="flag"/>
+        <result column="sign_time" jdbcType="TIMESTAMP" property="signTime"/>
+        <result column="dcollecttime" jdbcType="TIMESTAMP" property="dcollecttime"/>
+        <result column="op_user" jdbcType="VARCHAR" property="opUser"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
         emp_id,
-      </if>
-      <if test="cardId != null">
         card_id,
-      </if>
-      <if test="clockId != null">
         clock_id,
-      </if>
-      <if test="posSequ != null">
         pos_sequ,
-      </if>
-      <if test="cardSequ != null">
         card_sequ,
-      </if>
-      <if test="cardConsume != null">
         card_consume,
-      </if>
-      <if test="mval != null">
         mval,
-      </if>
-      <if test="coupon != null">
         coupon,
-      </if>
-      <if test="cardBalance != null">
         card_balance,
-      </if>
-      <if test="aBalance != null">
         a_balance,
-      </if>
-      <if test="kind != null">
         kind,
-      </if>
-      <if test="verId != null">
         ver_id,
-      </if>
-      <if test="flag != null">
         flag,
-      </if>
-      <if test="signTime != null">
         sign_time,
-      </if>
-      <if test="dcollecttime != null">
         dcollecttime,
-      </if>
-      <if test="opUser != null">
-        op_user,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="empId != null">
-        #{empId,jdbcType=VARCHAR},
-      </if>
-      <if test="cardId != null">
-        #{cardId,jdbcType=BIGINT},
-      </if>
-      <if test="clockId != null">
-        #{clockId,jdbcType=INTEGER},
-      </if>
-      <if test="posSequ != null">
-        #{posSequ,jdbcType=INTEGER},
-      </if>
-      <if test="cardSequ != null">
-        #{cardSequ,jdbcType=INTEGER},
-      </if>
-      <if test="cardConsume != null">
-        #{cardConsume,jdbcType=OTHER},
-      </if>
-      <if test="mval != null">
-        #{mval,jdbcType=OTHER},
-      </if>
-      <if test="coupon != null">
-        #{coupon,jdbcType=OTHER},
-      </if>
-      <if test="cardBalance != null">
-        #{cardBalance,jdbcType=OTHER},
-      </if>
-      <if test="aBalance != null">
-        #{aBalance,jdbcType=OTHER},
-      </if>
-      <if test="kind != null">
-        #{kind,jdbcType=INTEGER},
-      </if>
-      <if test="verId != null">
-        #{verId,jdbcType=INTEGER},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=INTEGER},
-      </if>
-      <if test="signTime != null">
-        #{signTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="dcollecttime != null">
-        #{dcollecttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opUser != null">
-        #{opUser,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mjmspred.model.meal.MealRecords">
-    <!--@mbg.generated-->
-    update MealRecords
-    <set>
-      <if test="empId != null">
-        emp_id = #{empId,jdbcType=VARCHAR},
-      </if>
-      <if test="cardId != null">
-        card_id = #{cardId,jdbcType=BIGINT},
-      </if>
-      <if test="clockId != null">
-        clock_id = #{clockId,jdbcType=INTEGER},
-      </if>
-      <if test="posSequ != null">
-        pos_sequ = #{posSequ,jdbcType=INTEGER},
-      </if>
-      <if test="cardSequ != null">
-        card_sequ = #{cardSequ,jdbcType=INTEGER},
-      </if>
-      <if test="cardConsume != null">
-        card_consume = #{cardConsume,jdbcType=OTHER},
-      </if>
-      <if test="mval != null">
-        mval = #{mval,jdbcType=OTHER},
-      </if>
-      <if test="coupon != null">
-        coupon = #{coupon,jdbcType=OTHER},
-      </if>
-      <if test="cardBalance != null">
-        card_balance = #{cardBalance,jdbcType=OTHER},
-      </if>
-      <if test="aBalance != null">
-        a_balance = #{aBalance,jdbcType=OTHER},
-      </if>
-      <if test="kind != null">
-        kind = #{kind,jdbcType=INTEGER},
-      </if>
-      <if test="verId != null">
-        ver_id = #{verId,jdbcType=INTEGER},
-      </if>
-      <if test="flag != null">
-        flag = #{flag,jdbcType=INTEGER},
-      </if>
-      <if test="signTime != null">
-        sign_time = #{signTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="dcollecttime != null">
-        dcollecttime = #{dcollecttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opUser != null">
-        op_user = #{opUser,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.meal.MealRecords">
-    <!--@mbg.generated-->
-    update MealRecords
-    set emp_id = #{empId,jdbcType=VARCHAR},
-      card_id = #{cardId,jdbcType=BIGINT},
-      clock_id = #{clockId,jdbcType=INTEGER},
-      pos_sequ = #{posSequ,jdbcType=INTEGER},
-      card_sequ = #{cardSequ,jdbcType=INTEGER},
-      card_consume = #{cardConsume,jdbcType=OTHER},
-      mval = #{mval,jdbcType=OTHER},
-      coupon = #{coupon,jdbcType=OTHER},
-      card_balance = #{cardBalance,jdbcType=OTHER},
-      a_balance = #{aBalance,jdbcType=OTHER},
-      kind = #{kind,jdbcType=INTEGER},
-      ver_id = #{verId,jdbcType=INTEGER},
-      flag = #{flag,jdbcType=INTEGER},
-      sign_time = #{signTime,jdbcType=TIMESTAMP},
-      dcollecttime = #{dcollecttime,jdbcType=TIMESTAMP},
-      op_user = #{opUser,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+        op_user
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from MealRecords
+        where id = #{id,jdbcType=BIGINT}
+    </select>
 </mapper>
