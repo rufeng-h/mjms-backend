@@ -41,6 +41,9 @@ public class TokenSecurityContextRepository implements SecurityContextRepository
             return context;
         }
         String id = jwtTokenManager.getId(token);
+        if (id == null) {
+            return context;
+        }
         MjmsUser user = userService.getUser(Long.parseLong(id));
         if (user == null) {
             return context;
