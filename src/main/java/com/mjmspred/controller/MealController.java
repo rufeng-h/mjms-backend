@@ -2,9 +2,9 @@ package com.mjmspred.controller;
 
 import com.mjmspred.common.api.ApiPage;
 import com.mjmspred.common.api.ApiResponse;
-import com.mjmspred.model.mjms.Dining;
-import com.mjmspred.model.mjms.query.DiningQuery;
-import com.mjmspred.service.mjms.DiningService;
+import com.mjmspred.model.meal.MealRecords;
+import com.mjmspred.model.meal.query.MealRecordsQuery;
+import com.mjmspred.service.meal.MealRecordsService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -17,24 +17,24 @@ import static com.mjmspred.config.OpenApiConfig.JWT_SCHEME_NAME;
 
 /**
  * @author HuangChunFeng
- * @time 2023-01-10 14:26
+ * @time 2023-01-10 17:08
  * @package com.mjmspred.controller
  * @description TODO
  */
 @RestController
 @Validated
+@RequestMapping("/api/meal")
+@Tag(name = "MealRecord Api", description = "就餐记录接口")
 @SecurityRequirement(name = JWT_SCHEME_NAME)
-@RequestMapping("/api/dining")
-@Tag(name = "Dining Api", description = "预测数据接口")
-public class DiningController {
-    private final DiningService diningService;
+public class MealController {
+    private final MealRecordsService mealRecordsService;
 
-    public DiningController(DiningService diningService) {
-        this.diningService = diningService;
+    public MealController(MealRecordsService mealRecordsService) {
+        this.mealRecordsService = mealRecordsService;
     }
 
     @GetMapping
-    public ApiResponse<ApiPage<Dining>> page(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize, @Validated DiningQuery query) {
-        return ApiResponse.success(diningService.pageDining(page, pageSize, query));
+    public ApiResponse<ApiPage<MealRecords>> pageMeal(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize, @Validated MealRecordsQuery query) {
+        return ApiResponse.success(mealRecordsService.page(page, pageSize, query));
     }
 }

@@ -86,11 +86,6 @@ public class MjmsDataSourceConfig {
         }
         /* 代替applyConfiguration */
         factory.setConfiguration(new org.apache.ibatis.session.Configuration());
-//        applyConfiguration(factory);
-
-//        if (!ObjectUtils.isEmpty(this.interceptors)) {
-//            factory.setPlugins(this.interceptors);
-//        }
         if (StringUtils.hasLength(this.properties.getTypeAliasesPackage())) {
             factory.setTypeAliasesPackage(this.properties.getTypeAliasesPackage());
         }
@@ -100,30 +95,10 @@ public class MjmsDataSourceConfig {
         if (StringUtils.hasLength(this.properties.getTypeHandlersPackage())) {
             factory.setTypeHandlersPackage(this.properties.getTypeHandlersPackage());
         }
-//        if (this.databaseIdProvider != null) {
-//            factory.setDatabaseIdProvider(this.databaseIdProvider);
-//        }
-//        if (!ObjectUtils.isEmpty(this.typeHandlers)) {
-//            factory.setTypeHandlers(this.typeHandlers);
-//        }
         Resource[] mapperLocations = this.properties.resolveMapperLocations();
         if (!ObjectUtils.isEmpty(mapperLocations)) {
             factory.setMapperLocations(mapperLocations);
         }
-//        Set<String> factoryPropertyNames = Stream.of(new BeanWrapperImpl(SqlSessionFactoryBean.class).getPropertyDescriptors()).map(PropertyDescriptor::getName).collect(Collectors.toSet());
-//        Class<? extends LanguageDriver> defaultLanguageDriver = this.properties.getDefaultScriptingLanguageDriver();
-//        if (factoryPropertyNames.contains("scriptingLanguageDrivers") && !ObjectUtils.isEmpty(this.languageDrivers)) {
-//            // Need to mybatis-spring 2.0.2+
-//            factory.setScriptingLanguageDrivers(this.languageDrivers);
-//            if (defaultLanguageDriver == null && this.languageDrivers.length == 1) {
-//                defaultLanguageDriver = this.languageDrivers[0].getClass();
-//            }
-//        }
-//        if (factoryPropertyNames.contains("defaultScriptingLanguageDriver")) {
-//            // Need to mybatis-spring 2.0.2+
-//            factory.setDefaultScriptingLanguageDriver(defaultLanguageDriver);
-//        }
-//        applySqlSessionFactoryBeanCustomizers(factory);
         return factory.getObject();
     }
 

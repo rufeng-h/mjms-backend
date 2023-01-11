@@ -1,7 +1,10 @@
 package com.mjmspred.mapper.meal;
 
+import com.github.pagehelper.Page;
 import com.mjmspred.model.meal.MealRecords;
+import com.mjmspred.model.meal.query.MealRecordsQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -14,4 +17,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MealRecordsMapper {
     MealRecords selectByPrimaryKey(Long id);
+
+    Page<MealRecords> page(@Param("query") MealRecordsQuery query);
 }

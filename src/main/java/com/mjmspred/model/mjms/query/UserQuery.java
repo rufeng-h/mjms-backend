@@ -1,8 +1,12 @@
 package com.mjmspred.model.mjms.query;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author HuangChunFeng
@@ -11,9 +15,12 @@ import lombok.Data;
  * @description user查询对象
  */
 @Data
-@Builder
 @AllArgsConstructor
+@Builder
+@NoArgsConstructor
 public class UserQuery {
+    @NotBlank
     private String username;
+    @NotBlank
     private String password;
 }

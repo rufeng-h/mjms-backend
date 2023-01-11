@@ -49,4 +49,30 @@
         from MealRecords
         where id = #{id,jdbcType=BIGINT}
     </select>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM MealRecords
+        <where>
+            <if test="query.cardId != null">
+                card_id = #{query.cardId,jdbcType=BIGINT}
+            </if>
+            <if test="query.maxConsume != null">
+                AND card_consume &gt;= -#{query.maxConsume,jdbcType=DECIMAL}
+            </if>
+            <if test="query.minConsume != null">
+                AND card_consume &lt;= -#{query.minConsume,jdbcType=DECIMAL}
+            </if>
+            <if test="query.empId != null">
+                AND emp_id = #{query.empId,jdbcType=VARCHAR}
+            </if>
+            <if test="query.sdatetime != null">
+                AND sign_time &gt;= #{query.sdatetime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="query.edatetime != null">
+                AND sign_time &lt;= #{query.edatetime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
 </mapper>

@@ -97,7 +97,6 @@ public class MealDataSourceConfig {
         if (StringUtils.hasLength(this.properties.getTypeHandlersPackage())) {
             factory.setTypeHandlersPackage(this.properties.getTypeHandlersPackage());
         }
-
         Resource[] mapperLocations = this.properties.resolveMapperLocations();
         if (!ObjectUtils.isEmpty(mapperLocations)) {
             factory.setMapperLocations(mapperLocations);

@@ -197,11 +197,11 @@
             <if test="query.date != null">
                 dn_date = #{query.date,jdbcType=DATE}
             </if>
-            <if test="query.sDate != null">
-                AND dn_date &gt;= #{query.sDate,jdbcType=DATE}
+            <if test="query.sdate != null">
+                AND dn_date &gt;= #{query.sdate,jdbcType=DATE}
             </if>
-            <if test="query.eDate != null">
-                AND dn_date &lt;= #{query.eDate,jdbcType=DATE}
+            <if test="query.edate != null">
+                AND dn_date &lt;= #{query.edate,jdbcType=DATE}
             </if>
         </where>
     </select>
