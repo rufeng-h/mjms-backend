@@ -43,9 +43,11 @@ public class MealRecordsQuery {
     /**
      * 消费时间，起
      */
+    @Schema(type = "string", pattern = "yyyy-MM-dd HH:mm:ss", example = "2022-12-25 00:09:00")
     private LocalDateTime sdatetime;
     /**
      * 消费时间，止
      */
+    @Schema(type = "string", pattern = "yyyy-MM-dd HH:mm:ss", example = "2023-01-01 00:00:00")
     private LocalDateTime edatetime;
 }
