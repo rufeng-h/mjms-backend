@@ -3,10 +3,23 @@ server:
 
 
 spring:
+
+  datasource:
+    meal:
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://localhost:1433;database=XYcard
+      username: sa
+      password: 123456
+    mjms:
+      driver-class-name: dm.jdbc.driver.DmDriver
+      url: jdbc:dm://localhost:5238/mjms
+      username: sysdba
+      password: '1234567890.'
+
   # jackson
   jackson:
     default-property-inclusion: non_null
-    date-format: yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:SS
     time-zone: GMT+8
   # http file
   servlet:
@@ -35,13 +48,15 @@ mybatis:
       jdbc-type-for-null: null
       local-cache-scope: statement
     mapper-locations: classpath:/mapper/mjms/*.xml
-app:
-  id: mjms-pred
-apollo:
-  meta: http://10.160.9.197:8080,http://10.160.9.198:8080,http://42.193.188.51:8080
-  bootstrap:
-    enabled: true
-    namespaces: application,mjms-datasource,meal-datasource
+#app:
+#  id: mjms-pred
+#apollo:
+#  meta: http://10.160.9.197:8080,http://10.160.9.198:8080,http://42.193.188.51:8080
+#  bootstrap:
+#    enabled: true
+
+#    namespaces: application,mjms-datasource,meal-datasource
 pagehelper:
   auto-runtime-dialect: true
-  close-conn:
+jwt:
+  key: 6aOe6Zuq6L+e5aSp5bCE55m96bm/77yM56yR5Lmm56We5L6g5YCa56Kn6biz44CC

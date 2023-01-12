@@ -12,7 +12,7 @@
         <!--@mbg.generated-->
         user_id,
         username,
-        `password`
+        password
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         <!--@mbg.generated-->
@@ -30,7 +30,7 @@
     <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.mjmspred.model.mjms.MjmsUser"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
-        insert into mjms_user (username, `password`)
+        insert into mjms_user (username, password)
         values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR})
     </insert>
     <insert id="insertSelective" keyColumn="user_id" keyProperty="userId"
@@ -42,7 +42,7 @@
                 username,
             </if>
             <if test="password != null">
-                `password`,
+                password,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -62,7 +62,7 @@
                 username = #{username,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
-                `password` = #{password,jdbcType=CHAR},
+                password = #{password,jdbcType=CHAR},
             </if>
         </set>
         where user_id = #{userId,jdbcType=BIGINT}
@@ -70,8 +70,8 @@
     <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.mjms.MjmsUser">
         <!--@mbg.generated-->
         update mjms_user
-        set username   = #{username,jdbcType=VARCHAR},
-            `password` = #{password,jdbcType=CHAR}
+        set username = #{username,jdbcType=VARCHAR},
+            password = #{password,jdbcType=CHAR}
         where user_id = #{userId,jdbcType=BIGINT}
     </update>
 
