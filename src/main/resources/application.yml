@@ -42,3 +42,6 @@ apollo:
   bootstrap:
     enabled: true
     namespaces: application,mjms-datasource,meal-datasource
+pagehelper:
+  auto-runtime-dialect: true
+  close-conn:

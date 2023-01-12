@@ -6,7 +6,7 @@ import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * @author HuangChunFeng
@@ -43,11 +43,11 @@ public class MealRecordsQuery {
     /**
      * 消费时间，起
      */
-    @Schema(type = "string", pattern = "yyyy-MM-dd HH:mm:ss", example = "2022-12-25 00:09:00")
-    private LocalDateTime sdatetime;
+    @Schema(type = "string", pattern = "yyyy-MM-dd", example = "2022-12-25")
+    private LocalDate sdate;
     /**
      * 消费时间，止
      */
-    @Schema(type = "string", pattern = "yyyy-MM-dd HH:mm:ss", example = "2023-01-01 00:00:00")
-    private LocalDateTime edatetime;
+    @Schema(type = "string", pattern = "yyyy-MM-dd", example = "2023-01-01")
+    private LocalDate edate;
 }
