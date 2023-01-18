@@ -205,4 +205,22 @@
             </if>
         </where>
     </select>
+
+    <select id="selectBydate" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM dining
+        WHERE dn_date = #{date,jdbcType=DATE}
+    </select>
+
+    <select id="selectBydates" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM dining
+        <where>
+            <foreach collection="list" open="dn_date IN (" item="item" separator="," close=")">
+                #{item,jdbcType=DATE}
+            </foreach>
+        </where>
+    </select>
 </mapper>

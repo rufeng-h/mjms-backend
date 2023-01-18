@@ -6,6 +6,9 @@ import com.mjmspred.model.mjms.query.DiningQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.time.LocalDate;
+import java.util.List;
+
 
 /**
  * @author HuangChunFeng
@@ -29,4 +32,8 @@ public interface DiningMapper {
     int updateByPrimaryKey(Dining record);
 
     Page<Dining> page(@Param("query") DiningQuery query);
+
+    Dining selectBydate(LocalDate date);
+
+    List<Dining> selectBydates(List<LocalDate> dates);
 }

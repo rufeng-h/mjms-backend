@@ -75,4 +75,11 @@
             </if>
         </where>
     </select>
+
+    <select id="selectByDate" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM MealRecords
+        WHERE signtime &gt;= {query.sdate} AND signtime &lt; {query.edate}
+    </select>
 </mapper>

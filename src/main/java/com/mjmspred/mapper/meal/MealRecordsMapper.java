@@ -5,6 +5,9 @@ import com.mjmspred.model.meal.MealRecords;
 import com.mjmspred.model.meal.query.MealRecordsQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 
 /**
@@ -19,4 +22,6 @@ public interface MealRecordsMapper {
     MealRecords selectByPrimaryKey(Long id);
 
     Page<MealRecords> page(@Param("query") MealRecordsQuery query);
+
+    List<MealRecords> selectByDate(@Param("query") MealRecordsQuery query);
 }

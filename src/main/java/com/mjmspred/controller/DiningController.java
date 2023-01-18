@@ -8,10 +8,11 @@ import com.mjmspred.service.mjms.DiningService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.util.List;
 
 import static com.mjmspred.config.OpenApiConfig.JWT_SCHEME_NAME;
 
@@ -36,5 +37,15 @@ public class DiningController {
     @GetMapping
     public ApiResponse<ApiPage<Dining>> page(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize, @Validated DiningQuery query) {
         return ApiResponse.success(diningService.pageDining(page, pageSize, query));
+    }
+
+    @GetMapping("/{date}")
+    public ApiResponse<Dining> getDining(@PathVariable LocalDate date) {
+        return ApiResponse.success(diningService.getDining(date));
+    }
+
+    @PostMapping("/list")
+    public ApiResponse<List<Dining>> statistic(@RequestBody @Size(min = 2) List<LocalDate> dates) {
+        return ApiResponse.success(diningService.listByDates(dates));
     }
 }

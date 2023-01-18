@@ -7,7 +7,7 @@ spring:
   datasource:
     meal:
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      url: jdbc:sqlserver://localhost:1433;database=XYcard
+      url: jdbc:sqlserver://localhost:1433;database=XYcard;trustServerCertificate=true
       username: sa
       password: 123456
     mjms:

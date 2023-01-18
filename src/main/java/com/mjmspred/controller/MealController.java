@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import static com.mjmspred.config.OpenApiConfig.JWT_SCHEME_NAME;
 
 /**
@@ -36,5 +39,10 @@ public class MealController {
     @GetMapping
     public ApiResponse<ApiPage<MealRecords>> pageMeal(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize, @Validated MealRecordsQuery query) {
         return ApiResponse.success(mealRecordsService.page(page, pageSize, query));
+    }
+
+    @GetMapping("/list")
+    public ApiResponse<List<MealRecords>> list(@RequestParam LocalDate date){
+        return ApiResponse.success(mealRecordsService.listByDate(date));
     }
 }

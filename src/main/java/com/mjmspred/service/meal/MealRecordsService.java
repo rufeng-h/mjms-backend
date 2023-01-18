@@ -11,6 +11,9 @@ import com.mjmspred.model.meal.query.MealRecordsQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
+
 /**
  * @author HuangChunFeng
  * @time 2023-01-09 11:13
@@ -34,5 +37,12 @@ public class MealRecordsService {
         PageHelper.startPage(page, pageSize);
         Page<MealRecords> records = mealRecordsMapper.page(query);
         return ApiPage.convert(records);
+    }
+
+    public List<MealRecords> listByDate(LocalDate date) {
+        MealRecordsQuery query = new MealRecordsQuery();
+        query.setSdate(date);
+        query.setEdate(date.plusDays(1L));
+        return mealRecordsMapper.selectByDate(query);
     }
 }
