@@ -82,4 +82,17 @@
         FROM MealRecords
         WHERE signtime &gt;= {query.sdate} AND signtime &lt; {query.edate}
     </select>
+
+    <select id="mealDistribution" resultType="com.mjmspred.model.meal.ConsDistribution">
+        SELECT op_user type, COUNT(0) count, -SUM(cc) consume
+        FROM (SELECT LEFT (op_user, 2) op_user, card_consume cc
+            FROM MealRecords
+            WHERE op_user IS NOT NULL
+            AND card_consume &lt; 0
+        <if test="query.sdate != null">
+            AND sign_time &gt;= #{query.sdate} AND sign_time &lt; #{query.edate}
+        </if>
+        ) as MRo
+        GROUP BY op_user;
+    </select>
 </mapper>

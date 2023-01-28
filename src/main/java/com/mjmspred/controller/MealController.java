@@ -2,6 +2,7 @@ package com.mjmspred.controller;
 
 import com.mjmspred.common.api.ApiPage;
 import com.mjmspred.common.api.ApiResponse;
+import com.mjmspred.model.meal.ConsDistribution;
 import com.mjmspred.model.meal.MealRecords;
 import com.mjmspred.model.meal.query.MealRecordsQuery;
 import com.mjmspred.service.meal.MealRecordsService;
@@ -44,5 +45,10 @@ public class MealController {
     @GetMapping("/list")
     public ApiResponse<List<MealRecords>> list(@RequestParam LocalDate date){
         return ApiResponse.success(mealRecordsService.listByDate(date));
+    }
+
+    @GetMapping("/distribution")
+    public ApiResponse<List<ConsDistribution>> distribution(@RequestParam(required = false) LocalDate date) {
+        return ApiResponse.success(mealRecordsService.distribution(date));
     }
 }
