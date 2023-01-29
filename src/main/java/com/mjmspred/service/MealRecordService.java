@@ -1,13 +1,14 @@
-package com.mjmspred.service.meal;
+package com.mjmspred.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.mjmspred.common.api.ApiPage;
-import com.mjmspred.mapper.meal.MealRecordsMapper;
-import com.mjmspred.model.meal.ConsDistribution;
-import com.mjmspred.model.meal.MealRecords;
-import com.mjmspred.model.meal.query.MealRecordsQuery;
+import com.mjmspred.mapper.MealRecordsMapper;
+import com.mjmspred.model.ConsDistribution;
+import com.mjmspred.model.MealRecord;
+import com.mjmspred.model.query.MealRecordsQuery;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -23,10 +24,12 @@ import java.util.stream.Collectors;
  */
 
 @Service
-public class MealRecordsService {
+public class MealRecordService {
     private static final Set<String> MEAL_TYPE_SET = new HashSet<>(4);
 
     static {
+        /* 兼容多种数据库 left函数返回null和空串 */
+        MEAL_TYPE_SET.add(null);
         MEAL_TYPE_SET.add("");
         MEAL_TYPE_SET.add("理发");
         MEAL_TYPE_SET.add("洗车");
@@ -36,21 +39,21 @@ public class MealRecordsService {
 
     private final MealRecordsMapper mealRecordsMapper;
 
-    public MealRecordsService(MealRecordsMapper mealRecordsMapper) {
+    public MealRecordService(MealRecordsMapper mealRecordsMapper) {
         this.mealRecordsMapper = mealRecordsMapper;
     }
 
-    public MealRecords getMeal(long id) {
+    public MealRecord getMeal(long id) {
         return mealRecordsMapper.selectByPrimaryKey(id);
     }
 
-    public ApiPage<MealRecords> page(Integer page, Integer pageSize, MealRecordsQuery query) {
+    public ApiPage<MealRecord> page(Integer page, Integer pageSize, MealRecordsQuery query) {
         PageHelper.startPage(page, pageSize);
-        Page<MealRecords> records = mealRecordsMapper.page(query);
+        Page<MealRecord> records = mealRecordsMapper.page(query);
         return ApiPage.convert(records);
     }
 
-    public List<MealRecords> listByDate(LocalDate date) {
+    public List<MealRecord> listByDate(LocalDate date) {
         MealRecordsQuery query = new MealRecordsQuery();
         query.setSdate(date);
         query.setEdate(date.plusDays(1L));
@@ -66,7 +69,7 @@ public class MealRecordsService {
         List<ConsDistribution> dists = mealRecordsMapper.mealDistribution(query);
         dists = dists.stream().filter(d -> MEAL_TYPE_SET.contains(d.getType())).collect(Collectors.toList());
         dists.forEach(d -> {
-            if ("".equals(d.getType())) {
+            if (!StringUtils.hasText(d.getType())) {
                 d.setType("餐食");
             }
         });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mjmspred.mapper.mjms.MjmsUserMapper">
-    <resultMap id="BaseResultMap" type="com.mjmspred.model.mjms.MjmsUser">
+<mapper namespace="com.mjmspred.mapper.MjmsUserMapper">
+    <resultMap id="BaseResultMap" type="com.mjmspred.model.MjmsUser">
         <!--@mbg.generated-->
         <!--@Table mjms_user-->
         <id column="user_id" jdbcType="BIGINT" property="userId"/>
@@ -27,14 +27,14 @@
         from mjms_user
         where user_id = #{userId,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.mjmspred.model.mjms.MjmsUser"
+    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.mjmspred.model.MjmsUser"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into mjms_user (username, password)
         values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR})
     </insert>
     <insert id="insertSelective" keyColumn="user_id" keyProperty="userId"
-            parameterType="com.mjmspred.model.mjms.MjmsUser" useGeneratedKeys="true">
+            parameterType="com.mjmspred.model.MjmsUser" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into mjms_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -54,7 +54,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.mjmspred.model.mjms.MjmsUser">
+    <update id="updateByPrimaryKeySelective" parameterType="com.mjmspred.model.MjmsUser">
         <!--@mbg.generated-->
         update mjms_user
         <set>
@@ -67,7 +67,7 @@
         </set>
         where user_id = #{userId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.mjms.MjmsUser">
+    <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.MjmsUser">
         <!--@mbg.generated-->
         update mjms_user
         set username = #{username,jdbcType=VARCHAR},

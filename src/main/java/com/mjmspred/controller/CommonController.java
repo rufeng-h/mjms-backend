@@ -1,10 +1,10 @@
 package com.mjmspred.controller;
 
 import com.mjmspred.common.api.ApiResponse;
-import com.mjmspred.model.mjms.form.LoginForm;
-import com.mjmspred.model.mjms.vo.LoginResult;
+import com.mjmspred.model.form.LoginForm;
+import com.mjmspred.model.vo.LoginResult;
 import com.mjmspred.security.support.UserInfo;
-import com.mjmspred.service.mjms.MjmsUserService;
+import com.mjmspred.service.MjmsUserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;

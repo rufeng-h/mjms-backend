@@ -1,7 +1,7 @@
-package com.mjmspred.mapper.mjms;
+package com.mjmspred.mapper;
 
-import com.mjmspred.model.mjms.MjmsUser;
-import com.mjmspred.model.mjms.query.UserQuery;
+import com.mjmspred.model.MjmsUser;
+import com.mjmspred.model.query.UserQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

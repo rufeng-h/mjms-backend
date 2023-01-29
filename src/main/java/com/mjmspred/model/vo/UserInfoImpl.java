@@ -1,12 +1,12 @@
-package com.mjmspred.model.mjms.vo;
+package com.mjmspred.model.vo;
 
-import com.mjmspred.model.mjms.MjmsUser;
+import com.mjmspred.model.MjmsUser;
 import com.mjmspred.security.support.UserInfo;
 
 /**
  * @author HuangChunFeng
  * @time 2023-01-10 10:32
- * @package com.mjmspred.model.mjms.vo
+ * @package com.mjmspred.model.vo
  * @description useinfo impl
  */
 public class UserInfoImpl implements UserInfo {

@@ -1,6 +1,5 @@
-package com.mjmspred.model.mjms.query;
+package com.mjmspred.model.query;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

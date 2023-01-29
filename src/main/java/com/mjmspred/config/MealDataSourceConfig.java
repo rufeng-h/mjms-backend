@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.support.JdbcTransactionManager;
@@ -26,7 +25,7 @@ import javax.sql.DataSource;
 /**
  * @author : chunf
  */
-@Configuration
+//@Configuration
 @EnableConfigurationProperties({MealDataSourceConfig.MealDataSourceProperties.class, MealDataSourceConfig.MealMybatisProperties.class})
 @MapperScan(basePackages = MealDataSourceConfig.BASE_MAPPER_PACKAGES, sqlSessionTemplateRef = MealDataSourceConfig.SESSION_TEMP_NAME)
 public class MealDataSourceConfig {

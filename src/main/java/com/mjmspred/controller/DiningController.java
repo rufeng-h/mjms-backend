@@ -2,11 +2,12 @@ package com.mjmspred.controller;
 
 import com.mjmspred.common.api.ApiPage;
 import com.mjmspred.common.api.ApiResponse;
-import com.mjmspred.model.mjms.Dining;
-import com.mjmspred.model.mjms.query.DiningQuery;
-import com.mjmspred.service.mjms.DiningService;
+import com.mjmspred.model.Dining;
+import com.mjmspred.model.query.DiningQuery;
+import com.mjmspred.service.DiningService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,8 +1,8 @@
-package com.mjmspred.mapper.mjms;
+package com.mjmspred.mapper;
 
 import com.github.pagehelper.Page;
-import com.mjmspred.model.mjms.Dining;
-import com.mjmspred.model.mjms.query.DiningQuery;
+import com.mjmspred.model.Dining;
+import com.mjmspred.model.query.DiningQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

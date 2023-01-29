@@ -1,4 +1,4 @@
-package com.mjmspred.model.meal.query;
+package com.mjmspred.model.query;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 /**
  * @author HuangChunFeng
  * @time 2023-01-10 17:20
- * @package com.mjmspred.model.meal.query
+ * @package com.mjmspred.model.query
  * @description TODO
  */
 @Data
@@ -43,11 +43,11 @@ public class MealRecordsQuery {
     /**
      * 消费时间，起
      */
-    @Schema(type = "string", pattern = "yyyy-MM-dd", example = "2022-12-25")
+    @Schema(type = "string",  example = "2022-12-25")
     private LocalDate sdate;
     /**
      * 消费时间，止
      */
-    @Schema(type = "string", pattern = "yyyy-MM-dd", example = "2023-01-01")
+    @Schema(type = "string",  example = "2023-01-01")
     private LocalDate edate;
 }

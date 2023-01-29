@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mjmspred.mapper.meal.MealRecordsMapper">
-    <resultMap id="BaseResultMap" type="com.mjmspred.model.meal.MealRecords">
+<mapper namespace="com.mjmspred.mapper.MealRecordsMapper">
+    <resultMap id="BaseResultMap" type="com.mjmspred.model.MealRecord">
         <!--@mbg.generated-->
-        <!--@Table MealRecords-->
+        <!--@Table meal_record-->
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="emp_id" jdbcType="VARCHAR" property="empId"/>
         <result column="card_id" jdbcType="BIGINT" property="cardId"/>
@@ -46,14 +46,14 @@
         <!--@mbg.generated-->
         select
         <include refid="Base_Column_List"/>
-        from MealRecords
+        from meal_record
         where id = #{id,jdbcType=BIGINT}
     </select>
 
     <select id="page" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM MealRecords
+        FROM meal_record
         <where>
             <if test="query.cardId != null">
                 card_id = #{query.cardId,jdbcType=BIGINT}
@@ -79,16 +79,16 @@
     <select id="selectByDate" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM MealRecords
-        WHERE signtime &gt;= {query.sdate} AND signtime &lt; {query.edate}
+        FROM meal_record
+        WHERE sign_time &gt;= #{query.sdate}
+          AND sign_time &lt; #{query.edate}
     </select>
 
-    <select id="mealDistribution" resultType="com.mjmspred.model.meal.ConsDistribution">
+    <select id="mealDistribution" resultType="com.mjmspred.model.ConsDistribution">
         SELECT op_user type, COUNT(0) count, -SUM(cc) consume
         FROM (SELECT LEFT (op_user, 2) op_user, card_consume cc
-            FROM MealRecords
-            WHERE op_user IS NOT NULL
-            AND card_consume &lt; 0
+            FROM meal_record
+            WHERE card_consume &lt; 0 AND op_user IS NOT NULL
         <if test="query.sdate != null">
             AND sign_time &gt;= #{query.sdate} AND sign_time &lt; #{query.edate}
         </if>

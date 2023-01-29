@@ -11,6 +11,8 @@ import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ValidationException;
+
 /**
  * @author rufeng
  * @time 2022-02-28 14:48
@@ -64,7 +66,7 @@ public class GlobalExceptionHandler {
     /**
      * 请求参数、请求体异常
      */
-    @ExceptionHandler({BindException.class})
+    @ExceptionHandler({BindException.class, ValidationException.class})
     public ApiResponse<Void> validateFailed() {
         return ApiResponse.validateFailed();
     }

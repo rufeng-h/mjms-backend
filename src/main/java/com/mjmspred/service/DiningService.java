@@ -1,11 +1,11 @@
-package com.mjmspred.service.mjms;
+package com.mjmspred.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.mjmspred.common.api.ApiPage;
-import com.mjmspred.mapper.mjms.DiningMapper;
-import com.mjmspred.model.mjms.Dining;
-import com.mjmspred.model.mjms.query.DiningQuery;
+import com.mjmspred.mapper.DiningMapper;
+import com.mjmspred.model.Dining;
+import com.mjmspred.model.query.DiningQuery;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

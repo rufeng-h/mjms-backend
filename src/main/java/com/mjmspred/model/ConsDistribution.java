@@ -1,4 +1,4 @@
-package com.mjmspred.model.meal;
+package com.mjmspred.model;
 
 import lombok.Data;
 

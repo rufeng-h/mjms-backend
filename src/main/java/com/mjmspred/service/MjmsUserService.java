@@ -1,12 +1,12 @@
-package com.mjmspred.service.mjms;
+package com.mjmspred.service;
 
 import com.mjmspred.exception.AuthenticationException;
-import com.mjmspred.mapper.mjms.MjmsUserMapper;
-import com.mjmspred.model.mjms.MjmsUser;
-import com.mjmspred.model.mjms.form.LoginForm;
-import com.mjmspred.model.mjms.query.UserQuery;
-import com.mjmspred.model.mjms.vo.LoginResult;
-import com.mjmspred.model.mjms.vo.UserInfoImpl;
+import com.mjmspred.mapper.MjmsUserMapper;
+import com.mjmspred.model.MjmsUser;
+import com.mjmspred.model.form.LoginForm;
+import com.mjmspred.model.query.UserQuery;
+import com.mjmspred.model.vo.LoginResult;
+import com.mjmspred.model.vo.UserInfoImpl;
 import com.mjmspred.security.authentication.Authentication;
 import com.mjmspred.security.context.SecurityContextHolder;
 import com.mjmspred.security.support.JwtTokenManager;

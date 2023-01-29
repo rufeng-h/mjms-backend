@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mjmspred.mapper.mjms.DiningMapper">
-    <resultMap id="BaseResultMap" type="com.mjmspred.model.mjms.Dining">
+<mapper namespace="com.mjmspred.mapper.DiningMapper">
+    <resultMap id="BaseResultMap" type="com.mjmspred.model.Dining">
         <!--@mbg.generated-->
         <!--@Table dining-->
         <id column="dn_id" jdbcType="BIGINT" property="dnId"/>
@@ -45,7 +45,7 @@
         from dining
         where dn_id = #{dnId,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="dn_id" keyProperty="dnId" parameterType="com.mjmspred.model.mjms.Dining"
+    <insert id="insert" keyColumn="dn_id" keyProperty="dnId" parameterType="com.mjmspred.model.Dining"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into dining (dn_date, real_breakfast, real_lunch,
@@ -57,7 +57,7 @@
                 #{predDinner,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{amsBreakfast,jdbcType=INTEGER},
                 #{amsLunch,jdbcType=INTEGER}, #{amsDinner,jdbcType=INTEGER})
     </insert>
-    <insert id="insertSelective" keyColumn="dn_id" keyProperty="dnId" parameterType="com.mjmspred.model.mjms.Dining"
+    <insert id="insertSelective" keyColumn="dn_id" keyProperty="dnId" parameterType="com.mjmspred.model.Dining"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into dining
@@ -132,7 +132,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.mjmspred.model.mjms.Dining">
+    <update id="updateByPrimaryKeySelective" parameterType="com.mjmspred.model.Dining">
         <!--@mbg.generated-->
         update dining
         <set>
@@ -172,7 +172,7 @@
         </set>
         where dn_id = #{dnId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.mjms.Dining">
+    <update id="updateByPrimaryKey" parameterType="com.mjmspred.model.Dining">
         <!--@mbg.generated-->
         update dining
         set dn_date        = #{dnDate,jdbcType=DATE},

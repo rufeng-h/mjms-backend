@@ -5,16 +5,16 @@ server:
 spring:
 
   datasource:
-    meal:
-      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      url: jdbc:sqlserver://localhost:1433;database=XYcard;trustServerCertificate=true
-      username: sa
-      password: 123456
-    mjms:
-      driver-class-name: dm.jdbc.driver.DmDriver
-      url: jdbc:dm://localhost:5238/mjms
-      username: sysdba
-      password: '1234567890.'
+    #    meal:
+    #      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #      url: jdbc:sqlserver://localhost:1433;database=XYcard;trustServerCertificate=true
+    #      username: sa
+    #      password: 123456
+    #    mjms:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: jdbc:dm://localhost:5238/mjms
+    username: sysdba
+    password: '1234567890.'
 
   # jackson
   jackson:
@@ -32,22 +32,22 @@ spring:
   #    allow-circular-references: false
   # mybatis
 mybatis:
-  meal:
-    configuration:
-      map-underscore-to-camel-case: true
-      cache-enabled: false
-      use-generated-keys: true
-      jdbc-type-for-null: null
-      local-cache-scope: statement
-    mapper-locations: classpath:/mapper/meal/*.xml
-  mjms:
-    configuration:
-      map-underscore-to-camel-case: true
-      cache-enabled: false
-      use-generated-keys: true
-      jdbc-type-for-null: null
-      local-cache-scope: statement
-    mapper-locations: classpath:/mapper/mjms/*.xml
+  #  meal:
+  #    configuration:
+  #      map-underscore-to-camel-case: true
+  #      cache-enabled: false
+  #      use-generated-keys: true
+  #      jdbc-type-for-null: null
+  #      local-cache-scope: statement
+  #    mapper-locations: classpath:/mapper/meal/*.xml
+  #  mjms:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    use-generated-keys: true
+    jdbc-type-for-null: null
+    local-cache-scope: statement
+  mapper-locations: classpath:/mapper/*.xml
 #app:
 #  id: mjms-pred
 #apollo:

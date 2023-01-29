@@ -1,4 +1,4 @@
-package com.mjmspred.model.mjms.query;
+package com.mjmspred.model.query;
 
 import lombok.Data;
 

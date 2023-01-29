@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.support.JdbcTransactionManager;
@@ -27,7 +26,7 @@ import javax.sql.DataSource;
 /**
  * @author : chunf
  */
-@Configuration
+//@Configuration
 @MapperScan(basePackages = "com.mjmspred.mapper.mjms", sqlSessionTemplateRef = MjmsDataSourceConfig.SESSION_TEMP_NAME)
 @EnableConfigurationProperties({MjmsDataSourceConfig.MjmsDataSourceProperties.class, MjmsDataSourceConfig.MjmsMybatisProperties.class})
 public class MjmsDataSourceConfig {

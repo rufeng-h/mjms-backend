@@ -1,4 +1,4 @@
-package com.mjmspred.model.meal;
+package com.mjmspred.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MealRecords {
+public class MealRecord {
     @Schema(description = "")
     private Long id;
 
