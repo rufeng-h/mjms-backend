@@ -52,15 +52,16 @@ public class Dining {
 
     /**
      * 8：30统计早上门禁人数
-
      */
-    @Schema(description = "8：30统计早上门禁人数 ") private Integer amsBreakfast;
+    @Schema(description = "8：30统计早上门禁人数 ")
+    private Integer amsBreakfast;
 
-            /**
-             * 统计中午门禁数
+    /**
+     * 统计中午门禁数
+     */
+    @Schema(description = "统计中午门禁数 ")
+    private Integer amsLunch;
 
-            */
-            @Schema(description = "统计中午门禁数 ") private Integer amsLunch;
-
-                    @Schema(description = "")
-                    private Integer amsDinner; }
+    @Schema(description = "")
+    private Integer amsDinner;
+}

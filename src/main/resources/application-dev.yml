@@ -5,12 +5,12 @@ logging:
     org.apache.ibatis: DEBUG
     com.mjmspred: DEBUG
 mybatis:
-  meal:
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mjms:
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #  meal:
+  #    configuration:
+  #      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #  mjms:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 springdoc:
   swagger-ui:
     enabled: true

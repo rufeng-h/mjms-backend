@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjmspred.mapper.FlowMapper">
+    <resultMap id="BaseResultMap" type="com.mjmspred.model.Flow">
+        <!--@mbg.generated-->
+        <!--@Table flow-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="f_date" jdbcType="TIMESTAMP" property="fDate"/>
+        <result column="pred" jdbcType="VARCHAR" property="pred"/>
+        <result column="real" jdbcType="VARCHAR" property="real"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        f_date,
+        pred,
+        "real",
+        remark
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from flow
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectByDate" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM flow
+        WHERE f_date = #{date,jdbcType=DATE}
+    </select>
+</mapper>
