@@ -5,7 +5,11 @@ import com.mjmspred.common.api.ApiResponse;
 import com.mjmspred.model.ConsDistribution;
 import com.mjmspred.model.MealRecord;
 import com.mjmspred.model.query.MealRecordsQuery;
+import com.mjmspred.model.vo.AgeMeal;
+import com.mjmspred.model.vo.DeptMeal;
+import com.mjmspred.model.vo.SiteStatistic;
 import com.mjmspred.service.MealRecordService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import static com.mjmspred.config.OpenApiConfig.JWT_SCHEME_NAME;
 
@@ -43,12 +48,29 @@ public class MealController {
     }
 
     @GetMapping("/list")
-    public ApiResponse<List<MealRecord>> list(@RequestParam LocalDate date){
+    public ApiResponse<List<MealRecord>> list(@RequestParam LocalDate date) {
         return ApiResponse.success(mealRecordService.listByDate(date));
     }
 
     @GetMapping("/distribution")
     public ApiResponse<List<ConsDistribution>> distribution(@RequestParam(required = false) LocalDate date) {
         return ApiResponse.success(mealRecordService.distribution(date));
+    }
+
+    @Operation(summary = "各部门就餐数")
+    @GetMapping("/deptMeal")
+    public ApiResponse<List<DeptMeal>> deptMeal(@RequestParam LocalDate date) {
+        return ApiResponse.success(mealRecordService.countDeptMeal(date));
+    }
+
+    @Operation(summary = "按年龄统计就餐数")
+    @GetMapping("/ageMeal")
+    public ApiResponse<List<AgeMeal>> ageMeal(@RequestParam LocalDate date) {
+        return ApiResponse.success(mealRecordService.countAgeMeal(date));
+    }
+
+    @GetMapping("/statistic")
+    public ApiResponse<SiteStatistic> siteStatistic() {
+        return ApiResponse.success(mealRecordService.siteStatistic());
     }
 }

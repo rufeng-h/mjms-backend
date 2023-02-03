@@ -95,4 +95,63 @@
         ) as MRo
         GROUP BY op_user;
     </select>
+
+    <select id="coutDeptMeal" resultType="com.mjmspred.model.vo.DeptMeal">
+        SELECT t1.dept, t1.count, t2.total
+        FROM (
+                 (SELECT em.dept, COUNT(mr.card_id) count
+                  FROM employee em
+                      INNER JOIN (SELECT mr.sign_time, card_id
+                      FROM meal_record mr
+                      WHERE mr.sign_time &lt; #{query.edate,jdbcType=DATE}
+                      AND mr.sign_time &gt;= #{query.sdate,jdbcType=DATE}
+                      AND mr.card_consume &gt;= -15
+                      AND mr.card_consume &lt;= -3) mr
+                  ON mr.card_id = em.card_id
+                  GROUP BY em.dept) t1 INNER JOIN (SELECT dept, COUNT(0) total
+                                                   FROM employee
+                                                   GROUP BY dept) t2 ON t1.dept = t2.dept)
+    </select>
+
+    <select id="listMealIdNumber" resultType="java.lang.String">
+        SELECT em.id_number
+        FROM employee em
+                 INNER JOIN (SELECT mr.sign_time, card_id
+                             FROM meal_record mr
+                             WHERE mr.sign_time &lt; #{query.edate,jdbcType=DATE}
+                               AND mr.sign_time &gt;= #{query.sdate,jdbcType=DATE}
+                               AND mr.card_consume &gt;= -15
+                               AND mr.card_consume &lt;= -3) mr
+                            ON mr.card_id = em.card_id
+    </select>
+
+    <select id="siteStatistic" resultType="com.mjmspred.model.vo.SiteStatistic">
+        SELECT *
+        FROM (SELECT SUM(ams_breakfast) + SUM(ams_lunch) + SUM(ams_dinner) month_ams
+              FROM dining
+              WHERE dn_date &lt;= #{lastDay,jdbcType=DATE}
+                AND dn_date &gt;= #{firstDay,jdbcType=DATE})
+                 CROSS JOIN (SELECT (pred_breakfast + pred_dinner + pred_lunch) day_pred_meal,
+                                    (ams_breakfast + ams_lunch + ams_dinner)    day_ams
+                             FROM dining
+                             WHERE dn_date = #{today,jdbcType=DATE})
+                 CROSS JOIN
+             (SELECT COUNT(sign_time) day_meal, -SUM(card_consume) day_money
+              FROM meal_record
+              WHERE sign_time &gt;= #{today,jdbcType=DATE}
+                AND sign_time &lt; #{tomorrow,jdbcType=DATE}
+                AND card_consume &lt;= -3
+                AND card_consume &gt;= -15
+                AND op_user = '')
+                 CROSS JOIN (SELECT COUNT(sign_time) month_meal, -SUM(card_consume) month_money
+                             FROM meal_record
+                             WHERE sign_time &gt;= #{firstDay,jdbcType=DATE}
+                               AND sign_time &lt;= #{lastDay,jdbcType=DATE}
+                               AND card_consume &lt;= -3
+                               AND card_consume &gt;= -15
+                               AND op_user = '')
+                 CROSS JOIN (SELECT (real_breakfast + real_dinner + real_lunch) yesterday_meal
+                             FROM dining
+                             WHERE dn_date = #{yesterday,jdbcType=DATE})
+    </select>
 </mapper>

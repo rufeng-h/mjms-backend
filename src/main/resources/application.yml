@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8011
 
 
 spring:
@@ -19,7 +19,7 @@ spring:
   # jackson
   jackson:
     default-property-inclusion: non_null
-    date-format: yyyy-MM-dd HH:mm:SS
+    date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   # http file
   servlet:
