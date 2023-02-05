@@ -36,6 +36,11 @@ public class CommonController {
         return ApiResponse.success(userService.login(form));
     }
 
+    @GetMapping("/logout")
+    public ApiResponse<Void> logout() {
+        return ApiResponse.success();
+    }
+
     @SecurityRequirement(name = JWT_SCHEME_NAME)
     @GetMapping("/api/getUserInfo")
     public ApiResponse<UserInfo> getUserInfo() {

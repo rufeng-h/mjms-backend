@@ -31,6 +31,9 @@ spring:
   #  main:
   #    allow-circular-references: false
   # mybatis
+  web:
+    resources:
+      static-locations: classpath:/dist
 mybatis:
   #  meal:
   #    configuration:
